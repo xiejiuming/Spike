@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   # MYSQL
   datasource:
@@ -10,7 +10,7 @@ spring:
     # 数据库密码
     password: 970205
     # 数据库驱动名
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   # redis
   redis:
