@@ -9,6 +9,13 @@ import com.xjm.spike.common.exception.ServiceExceptionEnum;
  */
 public enum CodeMsg implements ServiceExceptionEnum {
 
+
+	//登录成功
+	LOGIN_SYCCESS(200,"登陆成功"),
+
+	//登录成功
+	LOGIN_FAIL(100,"登陆失败"),
+
 	//通用的错误码
 	SUCCESS(0,"success"),
 	SERVER_ERROR(500100,"服务端异常"),

@@ -13,7 +13,7 @@ public class LoginVo {
 	private String mobile;
 	
 	@NotNull
-	@Length(min=32)
+	@Length(min=6)
 	private String password;
 	
 	public String getMobile() {

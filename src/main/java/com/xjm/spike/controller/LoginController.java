@@ -7,6 +7,7 @@ import com.xjm.spike.vo.LoginVo;
 import com.xjm.spike.result.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,13 +32,24 @@ public class LoginController {
     public String loginError(){
         return "login-error";
     }
-    
-    @RequestMapping("/login/from")
+
+    /**
+     * 查看当前登录的用户信息
+     * @return
+     */
+    @RequestMapping("/whoim")
     @ResponseBody
-    public Result<Boolean> doLogin(HttpServletResponse response, @Valid LoginVo loginVo) {
-    	log.info(loginVo.toString());
-    	//登录
-//    	userService.login(response, loginVo);
-    	return Result.success(true);
+    public Object whoIm(){
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
+
+    
+//    @RequestMapping("/login/from")
+//    @ResponseBody
+//    public Result<Boolean> doLogin(HttpServletResponse response, @Valid LoginVo loginVo) {
+//    	log.info(loginVo.toString());
+//    	//登录
+////    	userService.login(response, loginVo);
+//    	return Result.success(true);
+//    }
 }

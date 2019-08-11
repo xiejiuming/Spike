@@ -56,7 +56,7 @@ public class Result<T> {
         this.msg = msg;
     }
 
-    private Result(CodeMsg codeMsg) {
+    public Result(CodeMsg codeMsg) {
         if(codeMsg != null) {
             this.code = codeMsg.getCode();
             this.msg = codeMsg.getMessage();

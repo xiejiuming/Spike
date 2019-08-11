@@ -43,13 +43,13 @@ spring:
       content-type: text/html
     enabled: true
     encoding: UTF-8
-    mode: HTML5
+    mode: LEGACYHTML5
 
 # mybatis
 mybatis:
-  type-aliases-package: com.xjm.spike.model
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 3000
-  mapper-locations: classpath:com/xjm/spike/dao/*.xml
+  type-aliases-package: com.xjm.spike.model
+##  mapper-locations: classpath:com/xjm/spike/mapper/mapping/**.xml
