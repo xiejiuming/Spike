@@ -52,4 +52,4 @@ mybatis:
     default-fetch-size: 100
     default-statement-timeout: 3000
   type-aliases-package: com.xjm.spike.model
-##  mapper-locations: classpath:com/xjm/spike/mapper/mapping/**.xml
+  mapper-locations: classpath:mappings/*.xml
