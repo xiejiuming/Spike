@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@MapperScan("com.xjm.spike.mappings")
+@MapperScan("com.xjm.spike.mapper")
 public class SpikeApplication {
 
     public static void main(String[] args) {
