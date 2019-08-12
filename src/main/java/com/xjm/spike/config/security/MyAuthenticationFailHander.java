@@ -30,10 +30,9 @@ public class MyAuthenticationFailHander extends SimpleUrlAuthenticationFailureHa
         // TODO Auto-generated method stub
         logger.info("登录失败");
         //以Json格式返回
-        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(objectMapper.writeValueAsString(new Result<Object>(CodeMsg.SERVER_ERROR)));
+        response.getWriter().write(objectMapper.writeValueAsString(new Result<Object>(CodeMsg.LOGIN_FAIL)));
 
 
     }

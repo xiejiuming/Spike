@@ -2,6 +2,7 @@ package com.xjm.spike.common.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +20,9 @@ public class SpikeExceptionHandler {
 		if(e instanceof SpikeException) {
 			SpikeException ex = (SpikeException)e;
 			return Result.error(ex.getCm());
-		}else{
+		}else if(e instanceof BadCredentialsException){
+			return Result.error(CodeMsg.LOGIN_FAIL);
+		}else {
 			return Result.error(CodeMsg.SERVER_ERROR);
 		}
 	}
