@@ -1,16 +1,13 @@
 package com.xjm.spike.common.exception;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import com.xjm.spike.result.CodeMsg;
-import com.xjm.spike.result.Result;
-import org.springframework.validation.BindException;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.xjm.spike.result.CodeMsg;
+import com.xjm.spike.result.Result;
 
 
 @ControllerAdvice

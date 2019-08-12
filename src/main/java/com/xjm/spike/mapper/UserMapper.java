@@ -1,9 +1,9 @@
 package com.xjm.spike.mapper;
 
 
-import com.xjm.spike.model.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+
+import com.xjm.spike.model.UserInfo;
 
 @Mapper
 public interface UserMapper  {

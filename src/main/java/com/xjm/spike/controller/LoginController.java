@@ -1,10 +1,5 @@
 package com.xjm.spike.controller;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
-import com.xjm.spike.vo.LoginVo;
-import com.xjm.spike.result.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-	private static Logger log = LoggerFactory.getLogger(LoginController.class);
+	private static Logger loggger = LoggerFactory.getLogger(LoginController.class);
 //
 //	@Autowired
 //	MiaoshaUserService userService;
@@ -40,6 +35,7 @@ public class LoginController {
     @RequestMapping("/whoim")
     @ResponseBody
     public Object whoIm(){
+    	loggger.info("");
         return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 

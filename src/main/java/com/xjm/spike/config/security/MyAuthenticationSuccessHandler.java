@@ -1,18 +1,19 @@
 package com.xjm.spike.config.security;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.xjm.spike.result.CodeMsg;
-import com.xjm.spike.result.Result;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.stereotype.Component;
+import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.xjm.spike.result.CodeMsg;
+import com.xjm.spike.result.Result;
 
 
 @Component
@@ -28,7 +29,7 @@ public class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticat
 
 
         response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().write(objectMapper.writeValueAsString(new Result(CodeMsg.LOGIN_SYCCESS)));
+        response.getWriter().write(objectMapper.writeValueAsString(new Result<Object>(CodeMsg.LOGIN_SYCCESS)));
         //登录成功跳转页面
         //如果是要跳转到某个页面的，比如我们的那个whoim的则
         //new DefaultRedirectStrategy().sendRedirect(request, response, "/whoim");
