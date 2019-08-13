@@ -58,13 +58,43 @@
 </form>
 </body>
 <script>
-function login(){
+/*function login(){
 	$("#loginForm").validate({
         submitHandler:function(form){
             document.getElementById("loginForm").submit();
         }
     });
+}*/
+function login(){
+	$("#loginForm").validate({
+		submitHandler:function(form){
+			doLogin();
+		}
+	});
 }
-
+function doLogin(){
+	g_showLoading();
+	$.ajax({
+		url: "/login/form",
+		type: "POST",
+		data:{
+			username: $("#mobile").val(),
+			password: $("#password").val()
+		},
+		success:function(data){
+			layer.closeAll();
+			console.log(data)
+			if(data.code == 0){
+				layer.msg("成功");
+				window.location.href="/goods/to_list";
+			}else{
+				layer.msg(data.msg);
+			}
+		},
+		error:function(){
+			layer.closeAll();
+		}
+	});
+}
 </script>
 </html>
