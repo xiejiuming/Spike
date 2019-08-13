@@ -1,16 +1,14 @@
 package com.xjm.spike.common.exception;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import com.xjm.spike.result.CodeMsg;
-import com.xjm.spike.result.Result;
-import org.springframework.validation.BindException;
-import org.springframework.validation.ObjectError;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.xjm.spike.result.CodeMsg;
+import com.xjm.spike.result.Result;
 
 
 @ControllerAdvice
@@ -22,7 +20,9 @@ public class SpikeExceptionHandler {
 		if(e instanceof SpikeException) {
 			SpikeException ex = (SpikeException)e;
 			return Result.error(ex.getCm());
-		}else{
+		}else if(e instanceof BadCredentialsException){
+			return Result.error(CodeMsg.LOGIN_FAIL);
+		}else {
 			return Result.error(CodeMsg.SERVER_ERROR);
 		}
 	}

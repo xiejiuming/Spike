@@ -1,7 +1,6 @@
 package com.xjm.spike.common.exception;
 
 import com.xjm.spike.result.CodeMsg;
-import com.xjm.spike.result.Result;
 
 /**
  * 封装Spike的异常
